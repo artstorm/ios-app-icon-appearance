@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-    <!-- <a href="https://openupm.com/packages/ios-app-icon-appearance/"><img src="https://img.shields.io/npm/v/ios-app-icon-appearance?label=openupm&amp;registry_uri=https://package.openupm.com&labelColor=383f47" alt="openupm" /></a> -->
+    <a href="https://openupm.com/packages/ios-app-icon-appearance/"><img src="https://img.shields.io/npm/v/ios-app-icon-appearance?label=openupm&amp;registry_uri=https://package.openupm.com&labelColor=383f47" alt="openupm" /></a>
     <a href="https://mastodon.gamedev.place/@johansteen"><img src="https://img.shields.io/badge/mastodon-@johansteen-blue.svg?logo=mastodon&logoColor=ffffff&labelColor=383f47" alt="Mastodon: @johansteen" /></a>
     <a href="https://twitter.com/artstorm"><img src="https://img.shields.io/badge/twitter-@artstorm-blue.svg?logo=twitter&logoColor=ffffff&labelColor=383f47" alt="Twitter: @artstorm" /></a>
     <a href="https://discord.gg/WJn7w5WaU9"><img src="https://img.shields.io/badge/chat-discord-blue?logo=discord&logoColor=ffffff&labelColor=383f47" alt="Discord: Bitbebop" /></a>
@@ -57,12 +57,12 @@ _Caption: Example of icons assigned in Project Settings._
 
 3.  **Verify in Xcode (Xcode 16+):**
 
-    - Open your generated `.xcodeproj` or `.xcworkspace` file in Xcode.
-    - Navigate to your project target's settings (usually by selecting the project name in the Project Navigator, then selecting your app target under "TARGETS").
-    - Go to the `General` tab.
-    - In the "App Icons and Launch Screen" section, the "App Icons Source" should be `AppIcon`.
-    - Click on the arrow next to `AppIcon` (or select the `Assets.xcassets` → `AppIcon` in the Project Navigator).
-    - You should see a single 1024x1024 "iOS App Icon" slot. If you click it, the inspector will show the "Any Appearance", "Dark", and "Tinted" wells, populated with the icons you assigned in Unity (using their original filenames).
+    - Open your generated `.xcodeproj` file in Xcode.
+    - Navigate to the `Unity-iPhone` folder in the Project Navigator (left sidebar).
+    - Open the `Images` asset catalog.
+    - In the list of assets within the catalog, select `AppIcon`.
+    - You should directly see the editor for `AppIcon` now showing the **"Any Appearance"**, **"Dark"**, and **"Tinted"** wells as the primary input method.
+    - Verify that these wells are populated with the respective icons you assigned in Unity.
 
 ![Xcode App Icons](https://raw.githubusercontent.com/artstorm/ios-app-icon-appearance/main/.github/readme/xcode-app-icons.png)
 _Caption: Example of the AppIcon set in Xcode, showing the variants._
