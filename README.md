@@ -40,8 +40,9 @@ For complete details, please refer to Apple's official documentation:
 Using this package is simple:
 
 1.  **Configure Icons in Project Settings:**
-    _ After installing the package, navigate to `Edit` → `Project Settings...` in the Unity Editor.
-    _ Select the `iOS App Icon` tab. \* Assign your 1024x1024px icons to the desired Any Appearance, Dark, and/or Tinted slots.
+
+    - After installing the package, navigate to `Edit` → `Project Settings...` in the Unity Editor.
+    - Select the `iOS App Icon` tab. \* Assign your 1024x1024px icons to the desired Any Appearance, Dark, and/or Tinted slots.
 
     ![iOS App Icons in Project Settings](https://raw.githubusercontent.com/artstorm/ios-app-icon-appearance/main/.github/readme/unity-project-settings.png)
     _Caption: Example of icons assigned in Project Settings._
@@ -53,12 +54,13 @@ Using this package is simple:
     - **Important:** This package modifies the Xcode project to use app icon features introduced with Xcode 16. Ensure your build will be opened and archived with Xcode 16 or newer.
 
 3.  **Verify in Xcode (Xcode 16+):**
-    _ Open your generated `.xcodeproj` or `.xcworkspace` file in Xcode.
-    _ Navigate to your project target's settings (usually by selecting the project name in the Project Navigator, then selecting your app target under "TARGETS").
-    _ Go to the `General` tab.
-    _ In the "App Icons and Launch Screen" section, the "App Icons Source" should be `AppIcon`.
-    _ Click on the arrow next to `AppIcon` (or select the `Assets.xcassets` → `AppIcon` in the Project Navigator).
-    _ You should see a single 1024x1024 "iOS App Icon" slot. If you click it, the inspector will show the "Any Appearance", "Dark", and "Tinted" wells, populated with the icons you assigned in Unity (using their original filenames).
+
+    - Open your generated `.xcodeproj` or `.xcworkspace` file in Xcode.
+    - Navigate to your project target's settings (usually by selecting the project name in the Project Navigator, then selecting your app target under "TARGETS").
+    - Go to the `General` tab.
+    - In the "App Icons and Launch Screen" section, the "App Icons Source" should be `AppIcon`.
+    - Click on the arrow next to `AppIcon` (or select the `Assets.xcassets` → `AppIcon` in the Project Navigator).
+    - You should see a single 1024x1024 "iOS App Icon" slot. If you click it, the inspector will show the "Any Appearance", "Dark", and "Tinted" wells, populated with the icons you assigned in Unity (using their original filenames).
 
     ![Xcode App Icons](https://raw.githubusercontent.com/artstorm/ios-app-icon-appearance/main/.github/readme/xcode-app-icons.png)
     _Caption: Example of the AppIcon set in Xcode, showing the variants._
