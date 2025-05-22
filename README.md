@@ -32,3 +32,31 @@ It's important to design your icon variants according to Apple's Human Interface
 For complete details, please refer to Apple's official documentation:
 
 [App Icons - Human Interface Guidelines (iOS & iPadOS)](https://developer.apple.com/design/human-interface-guidelines/app-icons#iOS-iPadOS)
+
+## Installation
+
+Requires Unity 2021.3 LTS or higher.
+
+### OpenUPM
+
+The package is available on the [OpenUPM registry](https://openupm.com). It's recommended to install it via [openupm-cli](https://github.com/openupm/openupm-cli).
+
+```sh
+openupm add com.bitbebop.ios-app-icon-appearance
+```
+
+### Unity Package Manager and Git URL
+
+Install the package directly in Unity Package Manger using this URL:
+
+```
+https://github.com/artstorm/ios-app-icon-appearance.git?path=/Packages/com.bitbebop.ios-app-icon-appearance
+```
+
+Open Unity Package Manager → <kbd>+</kbd> → Add package from git URL:
+
+![Add package from git URL](https://raw.githubusercontent.com/artstorm/ios-app-icon-appearance/main/.github/readme/installation-git-1.png)
+
+Paste URL:
+
+![Paste git URL](https://raw.githubusercontent.com/artstorm/ios-app-icon-appearance/main/.github/readme/installation-git-2.png)
