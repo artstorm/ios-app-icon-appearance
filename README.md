@@ -17,7 +17,8 @@ This Unity package enables support for Apple's iOS app icon system, allowing you
 
 Upon installation, an **`iOS App Icon`** section is added to Unity's `Project Settings`. The icons configured here will override the default iOS icons (specified in `Player Settings`) during the iOS build process.
 
-**Requires building with Xcode 16 or newer.**
+> [!IMPORTANT]  
+> Requires building with Xcode 16 or newer.
 
 ## Icon Design Considerations
 
@@ -42,10 +43,11 @@ Using this package is simple:
 1.  **Configure Icons in Project Settings:**
 
     - After installing the package, navigate to `Edit` → `Project Settings...` in the Unity Editor.
-    - Select the `iOS App Icon` tab. \* Assign your 1024x1024px icons to the desired Any Appearance, Dark, and/or Tinted slots.
+    - Select the `iOS App Icon` tab.
+    - Assign your 1024x1024px icons to the desired Any Appearance, Dark, and/or Tinted slots.
 
-    ![iOS App Icons in Project Settings](https://raw.githubusercontent.com/artstorm/ios-app-icon-appearance/main/.github/readme/unity-project-settings.png)
-    _Caption: Example of icons assigned in Project Settings._
+![iOS App Icons in Project Settings](https://raw.githubusercontent.com/artstorm/ios-app-icon-appearance/main/.github/readme/unity-project-settings.png)
+_Caption: Example of icons assigned in Project Settings._
 
 2.  **Build for iOS:**
 
@@ -62,8 +64,8 @@ Using this package is simple:
     - Click on the arrow next to `AppIcon` (or select the `Assets.xcassets` → `AppIcon` in the Project Navigator).
     - You should see a single 1024x1024 "iOS App Icon" slot. If you click it, the inspector will show the "Any Appearance", "Dark", and "Tinted" wells, populated with the icons you assigned in Unity (using their original filenames).
 
-    ![Xcode App Icons](https://raw.githubusercontent.com/artstorm/ios-app-icon-appearance/main/.github/readme/xcode-app-icons.png)
-    _Caption: Example of the AppIcon set in Xcode, showing the variants._
+![Xcode App Icons](https://raw.githubusercontent.com/artstorm/ios-app-icon-appearance/main/.github/readme/xcode-app-icons.png)
+_Caption: Example of the AppIcon set in Xcode, showing the variants._
 
 ## Installation
 
