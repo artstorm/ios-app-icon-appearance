@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-    <a href="https://openupm.com/packages/ios-app-icon-appearance/"><img src="https://img.shields.io/npm/v/ios-app-icon-appearance?label=openupm&amp;registry_uri=https://package.openupm.com&labelColor=383f47" alt="openupm" /></a>
+    <a href="https://openupm.com/packages/com.bitbebop.ios-app-icon-appearance/"><img src="https://img.shields.io/npm/v/com.bitbebop.ios-app-icon-appearance?label=openupm&amp;registry_uri=https://package.openupm.com&labelColor=383f47" alt="openupm" /></a>
     <a href="https://mastodon.gamedev.place/@johansteen"><img src="https://img.shields.io/badge/mastodon-@johansteen-blue.svg?logo=mastodon&logoColor=ffffff&labelColor=383f47" alt="Mastodon: @johansteen" /></a>
     <a href="https://twitter.com/artstorm"><img src="https://img.shields.io/badge/twitter-@artstorm-blue.svg?logo=twitter&logoColor=ffffff&labelColor=383f47" alt="Twitter: @artstorm" /></a>
     <a href="https://discord.gg/WJn7w5WaU9"><img src="https://img.shields.io/badge/chat-discord-blue?logo=discord&logoColor=ffffff&labelColor=383f47" alt="Discord: Bitbebop" /></a>
