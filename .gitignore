@@ -5,6 +5,7 @@ Temp/
 UserSettings/
 obj/
 UIElementsSchema/
+Builds/
 
 *.sln
 *.csproj
