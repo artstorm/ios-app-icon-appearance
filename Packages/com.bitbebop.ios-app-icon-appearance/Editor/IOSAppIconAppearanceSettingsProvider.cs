@@ -15,43 +15,59 @@ namespace Bitbebop.Editor
             {
                 guiHandler = (searchContext) =>
                 {
+                    var settings = IOSAppIconAppearanceSettings.instance;
+                    
                     EditorGUILayout.LabelField(new GUIContent("Any Appearance"));
-                    IOSAppIconAppearanceSettings.instance.AnyAppearance = EditorGUILayout.ObjectField(
+                    settings.AnyAppearance = EditorGUILayout.ObjectField(
                         GUIContent.none,
-                        IOSAppIconAppearanceSettings.instance.AnyAppearance,
+                        settings.AnyAppearance,
                         typeof(Texture2D),
                         false,
                         GUILayout.Width(ObjectFieldSize),
                         GUILayout.Height(ObjectFieldSize)
                     ) as Texture2D;
+                    ValidateIcon(settings.AnyAppearance, "Any Appearance"); 
                     EditorGUILayout.Space(10);
 
                     EditorGUILayout.LabelField(new GUIContent("Dark"));
-                    IOSAppIconAppearanceSettings.instance.Dark = EditorGUILayout.ObjectField(
+                    settings.Dark = EditorGUILayout.ObjectField(
                         GUIContent.none,
-                        IOSAppIconAppearanceSettings.instance.Dark,
+                        settings.Dark,
                         typeof(Texture2D),
                         false,
                         GUILayout.Width(ObjectFieldSize),
                         GUILayout.Height(ObjectFieldSize)
                     ) as Texture2D;
+                    ValidateIcon(settings.Dark, "Dark"); 
                     EditorGUILayout.Space(10);
                     
                     EditorGUILayout.LabelField(new GUIContent("Tinted"));
-                    IOSAppIconAppearanceSettings.instance.Tinted = EditorGUILayout.ObjectField(
+                    settings.Tinted = EditorGUILayout.ObjectField(
                         GUIContent.none,
-                        IOSAppIconAppearanceSettings.instance.Tinted,
+                        settings.Tinted,
                         typeof(Texture2D),
                         false,
                         GUILayout.Width(ObjectFieldSize),
                         GUILayout.Height(ObjectFieldSize)
                     ) as Texture2D;
+                    ValidateIcon(settings.Tinted, "Tinted"); 
                 },
                 
                 keywords = new HashSet<string>(new[] { "Any Appearance", "Dark", "Tinted", "iOS AppIcon Xcode Apple" })
             };
 
             return provider;
+        }
+        
+        private static void ValidateIcon(Texture2D iconTexture, string iconName)
+        {
+            if (iconTexture != null)
+            {
+                if (iconTexture.width != 1024 || iconTexture.height != 1024)
+                {
+                    EditorGUILayout.HelpBox($"{iconName} icon must be 1024x1024. Current size: {iconTexture.width}x{iconTexture.height}.", MessageType.Warning);
+                }
+            }
         }
     }
 }
