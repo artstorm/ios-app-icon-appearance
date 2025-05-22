@@ -1,6 +1,8 @@
 # iOS App Icon Appearance for Unity
 
-Use modern iOS app icon appearances (Light, Dark, & Tinted) with Unity, a feature introduced with Xcode 16..
+<p align="center">
+    <img alt="iOS App Icon Appearance for Unity" src="https://raw.githubusercontent.com/artstorm/ios-app-icon-appearance/main/.github/readme/icon.png">
+</p>
 
 <p align="center">
     <!-- <a href="https://openupm.com/packages/ios-app-icon-appearance/"><img src="https://img.shields.io/npm/v/ios-app-icon-appearance?label=openupm&amp;registry_uri=https://package.openupm.com&labelColor=383f47" alt="openupm" /></a> -->
@@ -11,7 +13,7 @@ Use modern iOS app icon appearances (Light, Dark, & Tinted) with Unity, a featur
 
 ## About
 
-This Unity package enables support for Apple's modern iOS app icon system, allowing you to specify **Light (Any Appearance)**, **Dark**, and **Tinted** variants for your app icon. This streamlined approach, utilizing a single 1024x1024px source icon for each variant, was **introduced with Xcode 16**.
+This Unity package enables support for Apple's iOS app icon system, allowing you to specify Light (Any Appearance), Dark, and Tinted variants for your app icon. This streamlined approach, utilizing a single 1024x1024px source icon for each variant, was introduced with Xcode 16.
 
 Upon installation, an **`iOS App Icon`** section is added to Unity's `Project Settings`. The icons configured here will override the default iOS icons (specified in `Player Settings`) during the iOS build process.
 
@@ -39,7 +41,7 @@ Using this package is simple:
 
 1.  **Configure Icons in Project Settings:**
     _ After installing the package, navigate to `Edit` → `Project Settings...` in the Unity Editor.
-    _ Select the **`iOS App Icon`** tab. \* Assign your 1024x1024px icons to the desired **Any Appearance**, **Dark**, and/or **Tinted** slots.
+    _ Select the `iOS App Icon` tab. \* Assign your 1024x1024px icons to the desired Any Appearance, Dark, and/or Tinted slots.
 
     ![iOS App Icons in Project Settings](https://raw.githubusercontent.com/artstorm/ios-app-icon-appearance/main/.github/readme/unity-project-settings.png)
     _Caption: Example of icons assigned in Project Settings._
@@ -48,7 +50,7 @@ Using this package is simple:
 
     - Open `File` → `Build Settings...`.
     - Select `iOS` as the platform and click `Build` (or `Build And Run`).
-    - **Important:** This package modifies the Xcode project to use app icon features introduced with **Xcode 16**. Ensure your build will be opened and archived with Xcode 16 or newer.
+    - **Important:** This package modifies the Xcode project to use app icon features introduced with Xcode 16. Ensure your build will be opened and archived with Xcode 16 or newer.
 
 3.  **Verify in Xcode (Xcode 16+):**
     _ Open your generated `.xcodeproj` or `.xcworkspace` file in Xcode.
