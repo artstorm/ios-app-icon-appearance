@@ -10,16 +10,50 @@ namespace Bitbebop.Editor
     {
         public int callbackOrder => 0;
         
+        private const string ContentsJsonTemplate = @"{
+  ""images"" : [
+    {
+      ""idiom"" : ""universal"",
+      ""platform"" : ""ios"",
+      ""size"" : ""1024x1024""{ANY_FILENAME_JSON_PROPERTY}
+    },
+    {
+      ""appearances"" : [
+        {
+          ""appearance"" : ""luminosity"",
+          ""value"" : ""dark""
+        }
+      ],
+      ""idiom"" : ""universal"",
+      ""platform"" : ""ios"",
+      ""size"" : ""1024x1024""{DARK_FILENAME_JSON_PROPERTY}
+    },
+    {
+      ""appearances"" : [
+        {
+          ""appearance"" : ""luminosity"",
+          ""value"" : ""tinted""
+        }
+      ],
+      ""idiom"" : ""universal"",
+      ""platform"" : ""ios"",
+      ""size"" : ""1024x1024""{TINTED_FILENAME_JSON_PROPERTY}
+    }
+  ],
+  ""info"" : {
+    ""author"" : ""xcode"",
+    ""version"" : 1
+  }
+}";
+        private const string FilenameJsonPropertyFormat = @",
+      ""filename"" : ""{0}""";
+
         public void OnPostprocessBuild(BuildReport report)
         {
             if (report.summary.platform != BuildTarget.iOS)
                 return;
 
             var settings = IOSAppIconAppearanceSettings.instance;
-
-            // If no icons are set at all, skip processing.
-            if (!settings.AnyAppearance && !settings.Dark && !settings.Tinted)
-               return;
 
             var xcodeProjectPath = report.summary.outputPath;
             var appIconSetPath = FindAppIconSetPath(xcodeProjectPath);
@@ -32,7 +66,9 @@ namespace Bitbebop.Editor
 
             ClearExistingIcons(appIconSetPath);
 
-            var newContents = new AppIconSetContents();
+            var anyFilenameJsonProperty = "";
+            var darkFilenameJsonProperty = "";
+            var tintedFilenameJsonProperty = "";
 
             // Process "Any Appearance" icon
             if (settings.AnyAppearance != null)
@@ -41,7 +77,7 @@ namespace Bitbebop.Editor
                 var copiedFilename = CopyIcon(sourcePath, appIconSetPath);
                 if (!string.IsNullOrEmpty(copiedFilename))
                 {
-                    newContents.images.Add(new AppIconImage(copiedFilename));
+                    anyFilenameJsonProperty = string.Format(FilenameJsonPropertyFormat, copiedFilename);
                 }
             }
 
@@ -52,7 +88,7 @@ namespace Bitbebop.Editor
                 var copiedFilename = CopyIcon(sourcePath, appIconSetPath);
                 if (!string.IsNullOrEmpty(copiedFilename))
                 {
-                    newContents.images.Add(new AppIconImage(copiedFilename, "luminosity", "dark"));
+                    darkFilenameJsonProperty = string.Format(FilenameJsonPropertyFormat, copiedFilename);
                 }
             }
 
@@ -63,14 +99,18 @@ namespace Bitbebop.Editor
                 var copiedFilename = CopyIcon(sourcePath, appIconSetPath);
                 if (!string.IsNullOrEmpty(copiedFilename))
                 {
-                    newContents.images.Add(new AppIconImage(copiedFilename, "luminosity", "tinted"));
+                    tintedFilenameJsonProperty = string.Format(FilenameJsonPropertyFormat, copiedFilename);
                 }
             }
 
-            // Write new Contents.json file.
+            // Replace placeholders in the template
+            var finalJson = ContentsJsonTemplate
+                .Replace("{ANY_FILENAME_JSON_PROPERTY}", anyFilenameJsonProperty)
+                .Replace("{DARK_FILENAME_JSON_PROPERTY}", darkFilenameJsonProperty)
+                .Replace("{TINTED_FILENAME_JSON_PROPERTY}", tintedFilenameJsonProperty);
+
             var contentsJsonPath = Path.Combine(appIconSetPath, "Contents.json");
-            var jsonString = JsonUtility.ToJson(newContents, true);
-            File.WriteAllText(contentsJsonPath, jsonString);
+            File.WriteAllText(contentsJsonPath, finalJson);
         }
 
         private string FindAppIconSetPath(string xcodeProjectPath)
