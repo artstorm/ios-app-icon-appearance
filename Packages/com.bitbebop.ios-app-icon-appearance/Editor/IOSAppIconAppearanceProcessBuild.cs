@@ -130,7 +130,6 @@ namespace Bitbebop.Editor
             try
             {
                 File.Copy(sourceAssetPath, destinationPath, true);
-                Debug.Log($"IOSAppIconAppearanceProcessBuild: Copied '{sourceAssetPath}' to '{destinationPath}'");
                 return originalFilename;
             }
             catch (System.Exception ex)
